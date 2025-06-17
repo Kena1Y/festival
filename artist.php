@@ -12,7 +12,9 @@
     <?php
     include "./include/connectdb.php";
 
-    $stmt = $pdo->query("SELECT * FROM artists WHERE id = 1");
+    $id = $_GET['id'];
+    
+    $stmt = $pdo->query("SELECT * FROM artists WHERE id = $id");
     while ($row = $stmt->fetch()) {
         echo $row['name'] . "<br />\n" . $row['description'];
     }

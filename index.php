@@ -9,13 +9,19 @@
 
 
 <body>
-    test 11-06-2025 v2
+    
     <?php
     include "./include/connectdb.php";
 
-    $stmt = $pdo->query("SELECT * FROM artists");
+    $stmt = $pdo->query("SELECT id, name FROM artists");
     while ($row = $stmt->fetch()) {
-        echo $row['name'] . "<br />\n" . $row['description'];
+        // echo $row['name'] . "<br />\n";
+        
+        ?>
+        <a href="artist.php?id=<?php echo $row['id'];  ?>"><?php echo $row['name']; ?></a>
+        <?php
+
+        echo "<br><br>";
     }
 
 
